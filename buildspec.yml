@@ -17,3 +17,7 @@ phases:
 artifacts:
   files:
     - target/gs-maven-0.1.0.jar
+    - appspec.yml
+    - scripts/start-process.sh
+    - scripts/stop-process.sh
+  discard-paths: yes
