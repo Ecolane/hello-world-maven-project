@@ -15,5 +15,3 @@ hooks:
     - location: start-process.sh
       timeout: 180
       runas: root
-
-
