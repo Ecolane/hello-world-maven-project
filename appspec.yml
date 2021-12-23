@@ -7,11 +7,9 @@ files:
     destination: /tmp
 
 hooks:
-#   ApplicationStop:
-#     - location: stop-process.sh
-#       timeout: 180
-#       runas: root
+  ApplicationStop:
+    - location: stop-process.sh
+
   ApplicationStart:
     - location: start-process.sh
-      timeout: 180
-      runas: root
+
