@@ -1,3 +1,3 @@
 #!/bin/bash
 
-# ps -ef | grep artifact_name.jar | grep -v grep | awk '{print $2}' | xargs kill
+sudo ps -ef | grep gs-maven-0.1.0.jar | grep -v grep | awk '{print $2}' | xargs kill
