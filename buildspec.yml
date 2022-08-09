@@ -15,7 +15,9 @@ phases:
       - mkdir -p ~/.ssh
       - echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/BtQkl7K/4X9Hfy+ck3z/+WCBhvxxiFf2k7DK4Rm5y pipelinetesting" > ~/.ssh/id_rsa
       - chmod 600 ~/.ssh/id_rsa
-      - ssh-keygen -F github.com || ssh-keyscan github.com >>~/.ssh/known_hosts
+      - eval $(ssh-agent)
+      - ssh-add ~/.ssh/id_rsa
+      #- ssh-keygen -F github.com || ssh-keyscan github.com >>~/.ssh/known_hosts
       - git config --global url."git@github.com:".insteadOf "https://github.com/"
   post_build:
     commands:
@@ -23,6 +25,7 @@ phases:
       - cd $CODEBUILD_SRC_DIR
       - mkdir -p roles/drt_updater_part1/tasks/
       - touch roles/drt_updater_part1/tasks/$VERSION
+      - ls -lrt roles/drt_updater_part1/tasks/$VERSION
       - git add .
       - git commit -m "FF"
       - git push origin main
