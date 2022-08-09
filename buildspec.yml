@@ -20,13 +20,16 @@ phases:
       - mkdir -p /root/.ssh
       - echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/BtQkl7K/4X9Hfy+ck3z/+WCBhvxxiFf2k7DK4Rm5y" > /root/.ssh/id_rsa
       - chmod 600 /root/.ssh/id_rsa
-      - eval $(ssh-agent -s) &&  ssh-add /root/.ssh/id_rsa
+      - eval $(ssh-agent -s) && ssh-add -l -E sha256
+      # &&  ssh-add /root/.ssh/id_rsa
+      - ssh -T git@github.com
       #- ssh-keygen -F github.com || ssh-keyscan github.com >>~/.ssh/known_hosts
       - git config --global url."git@github.com:".insteadOf "https://github.com/"
   post_build:
     commands:
       - echo Build completed on `date`
       - cd $CODEBUILD_SRC_DIR
+      - git checkout main
       - git remote set-url origin git@github.com:Ecolane/hello-world-maven-project.git
       - git config --global user.email "systems@ecolane.com"
       - git config --global user.name "aws codebuild"
