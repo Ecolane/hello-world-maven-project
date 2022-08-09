@@ -18,7 +18,7 @@ phases:
       #- mvn clean install
       - VERSION=1.0.0
       - mkdir -p ~/.ssh
-      - echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/BtQkl7K/4X9Hfy+ck3z/+WCBhvxxiFf2k7DK4Rm5y pipelinetesting" > ~/.ssh/id_rsa
+      - echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/BtQkl7K/4X9Hfy+ck3z/+WCBhvxxiFf2k7DK4Rm5y" > ~/.ssh/id_rsa
       - chmod 600 ~/.ssh/id_rsa
       #- eval $(ssh-agent -s) &&  ssh-add ~/.ssh/id_rsa
       #- ssh-keygen -F github.com || ssh-keyscan github.com >>~/.ssh/known_hosts
