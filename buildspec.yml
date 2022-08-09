@@ -17,10 +17,10 @@ phases:
       - echo Build started on `date`
       #- mvn clean install
       - VERSION=1.0.0
-      - mkdir -p ~/.ssh
-      - echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/BtQkl7K/4X9Hfy+ck3z/+WCBhvxxiFf2k7DK4Rm5y" > ~/.ssh/id_rsa
-      - chmod 600 ~/.ssh/id_rsa
-      #- eval $(ssh-agent -s) &&  ssh-add ~/.ssh/id_rsa
+      - mkdir -p /root/.ssh
+      - echo "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE/BtQkl7K/4X9Hfy+ck3z/+WCBhvxxiFf2k7DK4Rm5y" > /root/.ssh/id_rsa
+      - chmod 600 /root/.ssh/id_rsa
+      - eval $(ssh-agent -s) &&  ssh-add /root/.ssh/id_rsa
       #- ssh-keygen -F github.com || ssh-keyscan github.com >>~/.ssh/known_hosts
       - git config --global url."git@github.com:".insteadOf "https://github.com/"
   post_build:
@@ -40,6 +40,7 @@ phases:
       - cat .git/config
       - git add .
       - git commit -m "FF"
+      - git branch -a
       - git push origin main
 #artifacts:
  # files:
