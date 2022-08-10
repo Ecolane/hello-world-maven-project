@@ -26,7 +26,7 @@ phases:
       #- cp $CODEBUILD_SRC_DIR/ansiblefile roles/drt_updater_part1/tasks/$VERSION
       #- sed -i "s/5.X.X.X/$VERSION/g" roles/drt_updater_part1/tasks/$VERSION
       #- sed -i "s/5.X.X/$VERSION/g" roles/drt_updater_part1/tasks/$VERSION
-      - ls -lrt roles/drt_updater_part1/tasks/$VERSION
+      #- ls -lrt roles/drt_updater_part1/tasks/$VERSION
       - cp testing_rsa /root/.ssh/id_rsa
       - cp testing_rsa.pub /root/.ssh/id_rsa.pub
       - chmod 600 /root/.ssh/id_rsa
