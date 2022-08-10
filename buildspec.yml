@@ -50,7 +50,7 @@ phases:
       - git add .
       - git commit -m "FF"
       - git branch -a
-      - git push main
+      - git push origin main
 #artifacts:
  # files:
   #  - target/gs-maven-0.1.0.jar
