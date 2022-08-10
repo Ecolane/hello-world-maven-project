@@ -1,0 +1,53 @@
+---
+## Notes:
+
+- name: Set Variables
+  set_fact:
+
+    # Application
+    EAR_FOLDER: '1.0.2'
+    EAR_VERSION: '1.0.2'
+  
+    USER_ADMIN: '1.0.1'
+    
+    # 4.X Reporting
+    REPORTING_ENGINE_4X: '4.9.0.1'
+    JENKINS_REPORTING_BRANCH_4X: 'publish-reports-490'
+    JENKINS_REPORTING_TEMPLATE_4X: '4.9.3.1'
+    JENKINS_REPORTING_TAG_4X: '4.9.0.0'
+
+    # 5.X Reporting
+    REPORTING_ENGINE_5X: '5.0.0.0'
+    JENKINS_REPORTING_BRANCH_5X: 'publish-reports-5.0_epic'
+    JENKINS_REPORTING_TEMPLATE_5X: '5.0.3.1'
+    JENKINS_REPORTING_TAG_5X: '5.0.0.0_rc2'
+    
+    # Services
+    JAVA_VERSION: '11.0.8_10'
+    WILDFLY_VERSION: '4.9.0.0'
+    NGINX_VERSION: '1.21.6'
+    PASSENGER_VERSION: '5.3.7'
+    PHP_VERSION: '7.4'
+    RDBMS_VERSION: '10.2.19'
+    MONGO_VERSION: '3.6'
+    
+    RUBY_VERSION:
+    - '2.3.1'
+    - '2.6.6'
+    - '2.7.2'
+    RUBY_REMOVE_VERSION:
+    - '2.6.1'
+    
+    PYTHON_VERSION: '2.7'
+
+    # Schema upgrade log location
+    SCHEMA_LOG_LOCATION: /var/log/schema_updates.log
+
+    # 5.0 Related
+    DEPLOY_5_0: true
+    VERSION_5_0: '5.9.0'
+    DEFAULT_ROLES_ZIP: 'default_roles_5.0_v6.zip'
+    SYNC_USERS_5_0: 'false'
+    FORCE_5_0: true
+    
+    tags: update_vars
