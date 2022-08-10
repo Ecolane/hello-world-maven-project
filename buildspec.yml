@@ -14,7 +14,9 @@ phases:
       - echo Nothing to do in the pre_build phase...
   build:
     commands:
+      - ls -lrt
       - echo Build started on `date`
+      - cp ansiblefile ansiblefile1
       - sed -ie "s/5.X.X.X/$VERSION/g" ansiblefile
       - sed -ie "s/5.X.X/$VERSION/g" ansiblefile
       - ls -lrt
