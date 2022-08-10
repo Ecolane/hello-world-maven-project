@@ -6,7 +6,7 @@
 
     # Application
     EAR_FOLDER: '5.X.X'
-    EAR_VERSION: ''
+    EAR_VERSION: '5.X.X.X'
   
     USER_ADMIN: '1.0.1'
     
