@@ -15,6 +15,10 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - sed -ie "s/5.X.X.X/$VERSION/g" ansiblefile
+      - sed -ie "s/5.X.X/$VERSION/g" ansiblefile
+      - ls -lrt
+      - cat ansiblefile
       #- mvn clean install
       - VERSION=1.0.0
       - mkdir -p /root/.ssh
@@ -36,9 +40,7 @@ phases:
       - git checkout main
       - git remote set-url origin git@github.com:Ecolane/hello-world-maven-project.git
       - git config --global user.email "systems@ecolane.com"
-      - git config --global user.name "aws codebuild"
-      - sed -ie "s/5.X.X/$VERSION/g" ansiblefile
-      - cat ansiblefile
+      - git config --global user.name "awscodebuild"
       - mkdir -p roles/drt_updater_part1/tasks/
       - touch roles/drt_updater_part1/tasks/$VERSION
       - mv $CODEBUILD_SRC_DIR/ansiblefile roles/drt_updater_part1/tasks/$VERSION
@@ -48,7 +50,7 @@ phases:
       - git add .
       - git commit -m "FF"
       - git branch -a
-      - git push origin main
+      - git push main
 #artifacts:
  # files:
   #  - target/gs-maven-0.1.0.jar
