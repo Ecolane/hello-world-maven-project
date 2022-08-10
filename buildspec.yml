@@ -47,12 +47,12 @@ phases:
       - sed -ie "s/5.X.X.X/$VERSION/g" roles/drt_updater_part1/tasks/$VERSION
       - sed -ie "s/5.X.X/$VERSION/g" roles/drt_updater_part1/tasks/$VERSION
       - ls -lrt roles/drt_updater_part1/tasks/$VERSION
-      - ls -lrt .git/config
-      - cat .git/config
       - git add .
       - git commit -m "FF"
       - git branch -a
       - git push origin main
+      - git submodule init
+      - git submodule update --recursive
 #artifacts:
  # files:
   #  - target/gs-maven-0.1.0.jar
