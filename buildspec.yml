@@ -53,7 +53,7 @@ phases:
       - git add roles/drt_updater_part1/tasks/.
       - git commit -m "FF"
       - git branch -a
-      - git push origin DevOps-PipeLinein
+      - git push origin DevOps-PipeLine
       - git submodule init
       - git submodule update --recursive
 #artifacts:
