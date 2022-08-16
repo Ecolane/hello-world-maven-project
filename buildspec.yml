@@ -32,9 +32,9 @@ phases:
       - cp ansiblefile ansiblefile1
       - sed -i "s/5.X.X.X/$VERSION/g" ansiblefile1
       - sed -i "s/5.X.X/$VERSION/g" ansiblefile1
-      - mv $CODEBUILD_SRC_DIR/ansiblefile1 $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
-      - ls -lrt roles/drt_updater_part1/tasks/$VERSION
-      - cat roles/drt_updater_part1/tasks/$VERSION
+      #- mv $CODEBUILD_SRC_DIR/ansiblefile1 $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
+      #- ls -lrt roles/drt_updater_part1/tasks/$VERSION
+      #- cat roles/drt_updater_part1/tasks/$VERSION
       - pwd      
   post_build:
     commands:
