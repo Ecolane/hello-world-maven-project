@@ -4,7 +4,7 @@ env:
     git_url: "git@github.com:Ecolane/hello-world-maven-project.git"
   parameter-store:
     ssh_key: k3-pipeline-rsa
-    ssh_pub: k3-pipeline-rsa.pub
+    ssh_pub: k3-pipeline-rsa-pub
 phases:
   install:
     runtime-versions:
