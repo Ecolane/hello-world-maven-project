@@ -39,8 +39,13 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - cd $CODEBUILD_SRC_DIR
-      - git checkout main
+      - cd $CODEBUILD_SRC_DIR_ansible
+      - git checkout DevOps-PipeLine
+      - mv $CODEBUILD_SRC_DIR/ansiblefile1 $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
+      - ls -lrt roles/drt_updater_part1/tasks/$VERSION
+      - ls -lrt $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
+      - cat roles/drt_updater_part1/tasks/$VERSION
+      - pwd 
       - git remote set-url origin git@github.com:Ecolane/ansible.git
       - git config --global user.email "systems@ecolane.com"
       - git config --global user.name "awscodebuild"
