@@ -1,10 +1,10 @@
 version: 0.2
-#env:
- # variables:
-  ##  git_url: "git@github.com:Ecolane/hello-world-maven-project.git"
-  #parameter-store:
-  #  ssh_key: k3-pipeline-rsa
-   # ssh_pub: k3-pipeline-rsa.pub
+env:
+  variables:
+    git_url: "git@github.com:Ecolane/hello-world-maven-project.git"
+  parameter-store:
+    ssh_key: k3-pipeline-rsa
+    ssh_pub: k3-pipeline-rsa.pub
 phases:
   install:
     runtime-versions:
@@ -14,9 +14,7 @@ phases:
       - echo Nothing to do in the pre_build phase...
   build:
     commands:
-      - ls -lrt
       - echo Build started on `date`
-      - cp ansiblefile ansiblefile1
       - ls -lrt
       - cat ansiblefile
       #- mvn clean install
@@ -34,7 +32,7 @@ phases:
       - cp ansiblefile ansiblefile1
       - sed -i "s/5.X.X.X/$VERSION/g" ansiblefile1
       - sed -i "s/5.X.X/$VERSION/g" ansiblefile1
-      - mv $CODEBUILD_SRC_DIR/ansiblefile1 roles/drt_updater_part1/tasks/$VERSION
+      - mv $CODEBUILD_SRC_DIR/ansiblefile1 $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
       - ls -lrt roles/drt_updater_part1/tasks/$VERSION
       - cat roles/drt_updater_part1/tasks/$VERSION
       - pwd      
@@ -43,7 +41,7 @@ phases:
       - echo Build completed on `date`
       - cd $CODEBUILD_SRC_DIR
       - git checkout main
-      - git remote set-url origin git@github.com:Ecolane/hello-world-maven-project.git
+      - git remote set-url origin git@github.com:Ecolane/ansible.git
       - git config --global user.email "systems@ecolane.com"
       - git config --global user.name "awscodebuild"
       - git status
