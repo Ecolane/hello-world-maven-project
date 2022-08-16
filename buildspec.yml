@@ -18,7 +18,7 @@ phases:
       - ls -lrt
       - cat ansiblefile
       #- mvn clean install
-      - VERSION=1.0.6
+      - VERSION=1.0.7
       - mkdir -p /root/.ssh
       - cp testing_rsa /root/.ssh/id_rsa
       - cp testing_rsa.pub /root/.ssh/id_rsa.pub
