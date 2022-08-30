@@ -9,3 +9,4 @@ phases:
   build:
     commands:
       - echo Build started on `date`
+      - aws codepipeline start-pipeline-execution --name Demo-Testing
