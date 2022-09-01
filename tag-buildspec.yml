@@ -12,7 +12,7 @@ phases:
       - echo Build started on `date`
       - printenv
       - echo $CODEBUILD_WEBHOOK_PREV_COMMIT
-      - echo "Testing1"
+      - echo "Testing2"
       #- aws codepipeline start-pipeline-execution --name Demo-Testing
      # - |
      # # if 
