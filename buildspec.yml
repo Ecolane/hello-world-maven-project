@@ -40,27 +40,30 @@ phases:
     commands:
       - echo Build completed on `date`
       - cd $CODEBUILD_SRC_DIR_ansible
-      - git checkout DevOps-PipeLine
-      - mv $CODEBUILD_SRC_DIR/ansiblefile1 $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
-      - ls -lrt roles/drt_updater_part1/tasks/$VERSION
-      - ls -lrt $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
-      - cat roles/drt_updater_part1/tasks/$VERSION
-      - pwd 
-      - git remote set-url origin git@github.com:Ecolane/ansible.git
-      - git config --global user.email "systems@ecolane.com"
-      - git config --global user.name "awscodebuild"
-      - git status
-      - git add roles/drt_updater_part1/tasks/.
-      - git commit -m "creating new version"
-      - git branch -a
-      - git push origin DevOps-PipeLine
-      - git submodule init
-      - git submodule update --recursive
-#artifacts:
- # files:
+      - ls -lrta *
+      - tar -cvzf ansible.tar.gz $CODEBUILD_SRC_DIR_ansible
+      #- git checkout DevOps-PipeLine
+      #- mv $CODEBUILD_SRC_DIR/ansiblefile1 $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
+      #- ls -lrt roles/drt_updater_part1/tasks/$VERSION
+      #- ls -lrt $CODEBUILD_SRC_DIR_ansible/roles/drt_updater_part1/tasks/$VERSION
+      #- cat roles/drt_updater_part1/tasks/$VERSION
+      #- pwd 
+      #- git remote set-url origin git@github.com:Ecolane/ansible.git
+      #- git config --global user.email "systems@ecolane.com"
+     #- git config --global user.name "awscodebuild"
+      #- git status
+      #- git add roles/drt_updater_part1/tasks/.
+      #- git commit -m "creating new version"
+     # - git branch -a
+     # - git push origin DevOps-PipeLine
+      #- git submodule init
+     # - git submodule update --recursive
+artifacts:
+  files:
   #  - target/gs-maven-0.1.0.jar
    # - appspec.yml
     #- scripts/start-process.sh
     #- scripts/stop-process.sh
     #- '**/*'
+    - ansible.tar.gz
   #discard-paths: yes
