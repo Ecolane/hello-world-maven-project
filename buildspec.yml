@@ -53,7 +53,7 @@ phases:
      #- git config --global user.name "awscodebuild"
       #- git status
       #- git add roles/drt_updater_part1/tasks/.
-      #- git commit -m "creating new version"
+      ##- git commit -m "creating new version"
      # - git branch -a
      # - git push origin DevOps-PipeLine
       #- git submodule init
